@@ -1,0 +1,22 @@
+{% extends 'master_detail/base.html' %}
+
+{% block title %}Popis računala{% endblock %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1>Popis računala</h1>
+    <a href="{% url 'computer_add' %}" class="btn btn-primary">Dodaj računalo</a>
+    <ul class="list-group mt-3">
+        {% for computer in computers %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ computer.name }}
+                <div>
+                    <a href="{% url 'computer_edit' computer.pk %}" class="btn btn-sm btn-primary">Uredi</a>
+                    <a href="{% url 'computer_delete' computer.pk %}" class="btn btn-sm btn-danger">Obriši</a>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nema računala</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

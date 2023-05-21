@@ -1,0 +1,14 @@
+{% extends 'master_detail/base.html' %}
+
+{% block title %}Stvori komponentu{% endblock %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1>Dodaj komponentu</h1>
+    <form method="post" class="mt-3">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Spremi</button>
+        <a href="{% url 'computer_edit' computer.pk %}" class="btn btn-secondary">Odustani</a>
+    </form>
+{% endblock %}

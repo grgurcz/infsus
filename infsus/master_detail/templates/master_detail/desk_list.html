@@ -1,0 +1,21 @@
+{% extends 'master_detail/base.html' %}
+
+{% block title %}Popis stolova{% endblock %}
+
+{% block content %}
+    <h1>Popis stolova</h1>
+    <a href="{% url 'desk_add' %}" class="btn btn-primary">Dodaj stol</a>
+    <ul class="list-group mt-3">
+        {% for desk in desks %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ desk.name }}
+                <div>
+                    <a href="{% url 'desk_edit' desk.pk %}" class="btn btn-sm btn-primary">Uredi</a>
+                    <a href="{% url 'desk_delete' desk.pk %}" class="btn btn-sm btn-danger">Obriši</a>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Nema stolova</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

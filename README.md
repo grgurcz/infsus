@@ -1,7 +1,7 @@
 # infsus
 Treca domaca zadaca iz predmeta Informacijski sustavi
 
-Upute za instalaciju:
+## Upute za instalaciju:
 
 Pokrenuti PostgreSQL u Docker kontejneru, postaviti zaporku na `admin`
 
